@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 以...开头 ^
+        // 以...结尾 $
+        let str = "二哈和他的白猫师尊"
+        let reg = /^二哈/
+
+        console.log(reg.test(str))//true
+
+        let str2 = "白猫师尊和二哈"
+        console.log(reg.test(str2))//false
+
+        let str3 = "二哈"
+        let reg2 = /^二哈$/
+        console.log(reg2.test(str3)) //true
+
+        // * 0 or more times
+        // + 1 or more times
+        // ? 0 or 1 times
+        // n times
+        console.log(/^哈*$/.test('哈哈哈'))//true
+        console.log(/^哈*$/.test(''))//true
+        console.log(/^哈?$/.test(''))//true
+        console.log(/^哈?$/.test('哈哈'))//false
+        
+        // [] 匹配字符
+        // [abc] 匹配abc其中任意“一个字符”，都返回true
+        let str4 = 'a candy'
+        let reg4 = /[a-c]/
+        console.log(reg4.test(str4))//true
+
+        //1开头 11位
+        let reg5 = /^1[359][0-9]{9}$/
+        let phone_num = '15967391313'
+        console.log(reg5.test(phone_num))
+
+        //加拿大手机号
+        let regCanada = /^[3-8][0-9]{9}$/
+        let Canada_phone = '3435493719'
+        console.log(regCanada.test(Canada_phone))//true
+
+        let Canada_phone2 = '34354937192'
+        console.log(regCanada.test(Canada_phone2))//false
+
+        //[^] 取反
+        let regCanada3 = /^[^3-8][0-9]{9}$/
+        let Canada_phone3 = '3435493719'
+        console.log(regCanada3.test(Canada_phone3))//false
+
+        let Canada_phone4 = '1435493719'//true
+        console.log(regCanada3.test(Canada_phone4))//true
+
+        // .{9} 表示所有字符都可以，有九个
+        let str6 = '5hihihiash.'
+        let reg6 = /^[1-9].{9}\.$/
+        console.log(reg6.test(str6))
+
+        // \d [0-9]
+        // \w [A-Za-z0-9_]
+        // \s 空格 回车
+        // \D \W \S [^0-9] [^A-Za-z0-9_]..
+
+
+        // i.text (不分大小写)
+        // g.text ()
+        console.log(/a/i.test('a'))//true
+        console.log(/a/i.test('A'))//true
+        console.log(/a/g.test('A'))//false
+
+        //.replace
+        let str7 = '我喜欢你'
+        str7 = str7.replace(/喜欢/,'**')
+        console.log(str7)
+
+        
+    </script>
+</body>
+</html>

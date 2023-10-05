@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则表达式
+        // 匹配含有前端的
+
+        let info = "专业的前端培训机构，黑马程序员"
+        let reg = /前端/
+
+        let result = reg.text(info)
+        console.log(result) //true
+
+        let result2 = reg.exec(info)
+        console.log(result2)//array
+        
+
+    </script>
+</body>
+</html>
